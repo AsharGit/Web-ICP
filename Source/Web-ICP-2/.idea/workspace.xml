@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a5409af-7d16-4620-af2c-08925691b022" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Documentation/Forked repo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentation/GitHub project.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentation/Index code.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentation/Index output.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentation/Local directories.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentation/Pull request.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentation/Readme updated.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentation/Repo branch.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentation/Repo issue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentation/Repository cloned.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documentation/Webstorm installation.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web-ICP1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web-ICP1/.idea/Web-ICP1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web-ICP1/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web-ICP1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web-ICP1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoogleTask/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleTask/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +31,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Web_Lesson2/Web_Lesson2/Inclass/CSS_Inclass/GoogleTask" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -61,6 +46,7 @@
       <workItem from="1611209694596" duration="3080000" />
       <workItem from="1611722969320" duration="1589000" />
       <workItem from="1611802729610" duration="9725000" />
+      <workItem from="1611813845708" duration="361000" />
     </task>
     <servers />
   </component>
@@ -77,5 +63,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
