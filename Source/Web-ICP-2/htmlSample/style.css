@@ -1,0 +1,32 @@
+.name
+{
+    text-align: center;
+    font-size: 50px;
+    color: blue;
+}
+
+.desc
+{
+    text-align: center;
+    font-style: italic;
+    color: orangered;
+    font-size: 20px;
+}
+
+.album
+{
+    text-align: center;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 80px;
+}
+
+.media
+{
+    text-align: center;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
