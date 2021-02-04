@@ -1,0 +1,12 @@
+.main {
+    background-color: azure;
+}
+.center {
+    display: inline-block;
+    font-size: 20px;
+    font-family: "Lato Light", serif;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+

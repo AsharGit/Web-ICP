@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<!--
+TODO:
+1.Enter your name in h1 and designation in h3
+2.Replace all the placeholder images with suitable images of the same size reflecting you and your projects.Feel free to use the sample images provided
+3.Replace the content of headings App1,App2,App3,App4 with suitable headings of your projects & provide their github links in the corresponding links
+4.Make all the elements in the page responsive & align its content as shown in the output sample with the aforementioned using bootstrap
+
+-->
+
+<html>
+<head>
+    <meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+    <!-- Lato Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            font-family: 'Lato', sans-serif;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Lato', sans-serif;
+        }
+
+        h3 {
+            font-family: 'Lato', sans-serif;
+            color: grey;
+            text-align: center;
+        }
+
+        p {
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+        }
+
+        img {
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- Bootstrap code -->
+<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet">
+<script crossorigin="anonymous"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- Profile and designation -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <img alt="Profile" class="img-fluid" src="pictures/face.png">
+        </div>
+        <div class="col-lg-6">
+            <h1>ASHISH SHARMA</h1>
+            <h3>CS STUDENT</h3>
+        </div>
+    </div>
+
+
+    <!-- Banner -->
+
+    <div class="row">
+        <div class="col-lg">
+            <img alt="header" class="img-fluid" src="pictures/header.jpg">
+            <h2>Featured Work</h2>
+        </div>
+    </div>
+
+
+    <!-- Apps and links -->
+
+    <div class="row">
+        <div class="col-lg-3">
+            <img alt="Calc App" class="img-fluid" src="pictures/infix.jpg">
+            <h3>INFIX PARSER</h3>
+            <p><a href="https://github.com/AsharGit/infixParser"> https://github.com/AsharGit/infixParser</a></p>
+        </div>
+
+        <div class="col-lg-3">
+            <img alt="Baseball App" class="img-fluid" src="pictures/umpire.jpg">
+            <h3>UMPIRE BUDDY</h3>
+            <p><a href="https://github.com/AsharGit/UmpireBuddy"> https://github.com/AsharGit/UmpireBuddy</a></p>
+        </div>
+
+        <div class="col-lg-3">
+            <img alt="ToDo list App" class="img-fluid" src="pictures/todo.jpg">
+            <h3>PLANA</h3>
+            <p><a href="https://github.com/AsharGit/PlanA">
+                https://github.com/AsharGit/PlanA</a></p>
+        </div>
+
+        <div class="col-lg-3">
+            <img alt="Morse Code App" class="img-fluid" src="pictures/morse.jpg">
+            <h3>MORSE CODER</h3>
+            <p><a href="https://github.com/AsharGit/morseCode"> https://github.com/AsharGit/morseCode</a></p>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>
