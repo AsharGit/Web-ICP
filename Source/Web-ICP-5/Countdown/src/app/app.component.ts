@@ -1,4 +1,4 @@
-import {Component, NgModule} from '@angular/core';
+import {Component, NgModule, OnInit} from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 
 @Component({
@@ -6,48 +6,30 @@ import { Subscription, interval } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app';
-  private subscription: Subscription;
-
-  public dateNow = new Date();
-  public dDay = new Date('Jan 01 2022 00:00:00');
-  milliSecondsInASecond = 1000;
-  hoursInADay = 24;
-  minutesInAnHour = 60;
-  SecondsInAMinute  = 60;
-
-  public timeDifference;
-  public seconds;
-  public minutes;
-  public hours;
-  public days;
+export class AppComponent implements OnInit {
+  subscription: Subscription;
+  targetDay = new Date('Jan 01 2022 00:00:00');
+  timeDifference;
+  seconds;
+  minutes;
+  hours;
+  days;
 
 
-  private getTimeDifference () {
-    this.timeDifference = this.dDay.getTime() - new  Date().getTime();
+  getTimeDifference () {
+    this.timeDifference = this.targetDay.getTime() - new  Date().getTime();
     this.allocateTimeUnits(this.timeDifference);
   }
 
-  private allocateTimeUnits (timeDifference) {
-    this.seconds = Math.floor((timeDifference) / (this.milliSecondsInASecond) % this.SecondsInAMinute);
-    this.minutes = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour) % this.SecondsInAMinute);
-    this.hours = Math.floor((timeDifference) /
-      (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute) % this.hoursInADay);
-    this.days = Math.floor((timeDifference) /
-      (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute * this.hoursInADay));
+  allocateTimeUnits (timeDifference) {
+    this.seconds = Math.floor((timeDifference) / 1000 % 60);
+    this.minutes = Math.floor((timeDifference) / (1000 * 60) % 60);
+    this.hours = Math.floor((timeDifference) / (1000 * 60 * 60) % 24);
+    this.days = Math.floor((timeDifference) / (1000 * 60 * 60 * 24));
   }
 
-  // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
     this.subscription = interval(1000)
       .subscribe(x => { this.getTimeDifference(); });
   }
-
-
-  // tslint:disable-next-line:use-life-cycle-interface
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
 }

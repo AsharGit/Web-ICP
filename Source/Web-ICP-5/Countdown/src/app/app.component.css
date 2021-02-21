@@ -18,3 +18,7 @@
   background-color: pink;
   display: block;
 }
+
+.unit {
+  font-weight: bold;
+}
