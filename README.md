@@ -9,3 +9,7 @@ ICP-2: This ICP is an intro to HTML and CSS.
 ICP-3: This ICP introduces us to Bootstrap for CSS and how to use Javascript.
 
 ICP-4: This ICP we learn how to use JQuery and API's.
+
+ICP-5: This ICP we learn how to use Angular.
+
+ICP-6: This ICP we learn how to use API's to build an interactive website.
