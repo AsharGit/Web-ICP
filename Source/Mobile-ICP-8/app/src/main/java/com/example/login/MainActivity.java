@@ -31,18 +31,14 @@ public class MainActivity extends AppCompatActivity {
                     // Match username and password to be redirected to home
                     if (username.equals("Admin") && password.equals("Admin")) {
                         enter(view);
-                    }
-                    else {
+                    } else {
                         notification("Invalid Username or Password.");
                     }
-                }
-                else {
+                } else {
                     notification("Please fill all fields.");
                 }
             }
         });
-
-
     }
 
     // Redirect to home activity
