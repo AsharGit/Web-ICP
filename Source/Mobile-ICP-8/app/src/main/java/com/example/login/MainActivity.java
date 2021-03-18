@@ -51,9 +51,6 @@ public class MainActivity extends AppCompatActivity {
     public void notification(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(message);
-        builder.setCancelable(true);
         builder.create().show();
     }
-
-
 }
