@@ -13,3 +13,7 @@ ICP-4: This ICP we learn how to use JQuery and API's.
 ICP-5: This ICP we learn how to use Angular.
 
 ICP-6: This ICP we learn how to use API's to build an interactive website.
+
+ICP-7: This ICP we learn how to use the MEAN stack.
+
+ICP-8: This ICP we learn how to use Android Studio to make mobile applications.
