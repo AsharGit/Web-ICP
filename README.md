@@ -1,4 +1,4 @@
-# Web-ICP-1
+# Web-ICP
 
 This repository contains work done for the CS 490 ICP.  Full details for the ICP's can be found in the wiki.
 
