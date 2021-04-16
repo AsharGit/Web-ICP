@@ -29,33 +29,31 @@ public class StorageActivity extends AppCompatActivity {
     public void saveTofile(View v) throws IOException {
 
         // ICP Task4: Write the code to save the text
+        // Open file and append new text
         FileOutputStream fos = openFileOutput(FILENAME, Context. MODE_APPEND);
         String msg = String.valueOf(txt_content.getText());
         fos.write(msg.getBytes());
         fos.close();
-
-        FileInputStream fis = openFileInput(FILENAME);
-        InputStreamReader inputStreamReader = new InputStreamReader(fis);
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        String receiveString= "";
-        StringBuilder stringBuilder = new StringBuilder();
-        while((receiveString = bufferedReader.readLine()) != null){
-            stringBuilder.append(receiveString);
-        }
-        fis.close();
-        String ret = stringBuilder.toString();
-        contenttoDisplay.setText(ret);
-        contenttoDisplay.setVisibility(View.VISIBLE);
-
-
 
     }
 
     public void retrieveFromFile(View v) throws IOException {
 
         // ICP Task4: Write the code to display the above saved text
-
-
+        // Open file and read input
+        FileInputStream fis = openFileInput(FILENAME);
+        InputStreamReader inputStreamReader = new InputStreamReader(fis);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        String receiveString= "";
+        StringBuilder stringBuilder = new StringBuilder();
+        while((receiveString = bufferedReader.readLine()) != null){
+            stringBuilder.append(receiveString).append(" ");
+        }
+        fis.close();
+        // Convert to string and display text
+        String ret = stringBuilder.toString();
+        contenttoDisplay.setText(ret);
+        contenttoDisplay.setVisibility(View.VISIBLE);
 
     }
 }

@@ -26,6 +26,8 @@ public class CameraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera);
         Button capture = (Button) findViewById(R.id.btn_take_photo);
         userImage = (ImageView) findViewById(R.id.view_photo);
+
+        // Permission for camera use
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]

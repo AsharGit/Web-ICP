@@ -74,12 +74,14 @@ public class AudioRecordingActivity extends AppCompatActivity {
     private void startRecording() {
 
         // ICP Task3: Write the code to recording the Audio
+        // Create recording media by setting audio source
         mRecorder = new MediaRecorder();
         mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mRecorder.setOutputFile(mFileName);
         mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
+        // Execute audio recorder and display error if exception is thrown
         try {
             mRecorder.prepare();
         } catch (IOException e) {

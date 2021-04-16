@@ -23,7 +23,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.List;
 
 public class LocationActivity extends AppCompatActivity implements OnMapReadyCallback {
-    private GoogleMap mMap;
     public Geocoder geocoder;
     double latitude = 0, longitude = 0;
 
@@ -47,10 +46,10 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
         geocoder = new Geocoder(this);
         StringBuilder userAddress = new StringBuilder();
-        final LocationManager userCurrentLocation = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        final LocationManager userCurrentLocation = (LocationManager)
+                this.getSystemService(Context.LOCATION_SERVICE);
         LocationListener userCurrentLocationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
@@ -68,14 +67,13 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
             public void onProviderDisabled(String provider) {
             }
         };
-        LatLng userCurrentLocationCoordinates = null;
-        double latitude = 0;
-        double longitude = 0;
+        LatLng userCurrentLocationCoordinates;
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED && ActivityCompat
                 .checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             //show message or ask permissions from the user.
+            Toast.makeText(this, "Permission success", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -84,14 +82,15 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
         // ICP Task1: Write the code to get the current location of the user
 
         //Getting the address of the user based on latitude and longitude.
+        userCurrentLocation.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,
+                0, userCurrentLocationListener);
+        latitude = userCurrentLocation.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                .getLatitude();
+        longitude = userCurrentLocation.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                .getLongitude();
+        userCurrentLocationCoordinates = new LatLng(latitude, longitude);
+
         try {
-            userCurrentLocation.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,
-                    0, userCurrentLocationListener);
-            latitude = userCurrentLocation.getLastKnownLocation(LocationManager.GPS_PROVIDER)
-                    .getLatitude();
-            longitude = userCurrentLocation.getLastKnownLocation(LocationManager.GPS_PROVIDER)
-                    .getLongitude();
-            userCurrentLocationCoordinates = new LatLng(latitude, longitude);
 
             // set user coordinates based on lat and long values retrieved
             List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
@@ -107,11 +106,11 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
             ex.printStackTrace();
         }
         //Setting our image as the marker icon.
-        mMap.addMarker(new MarkerOptions().position(userCurrentLocationCoordinates)
+        googleMap.addMarker(new MarkerOptions().position(userCurrentLocationCoordinates)
                 .title("Your current address.").snippet(userAddress.toString())
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_maps)));
         //Setting the zoom level of the map.
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userCurrentLocationCoordinates, 7));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userCurrentLocationCoordinates, 7));
     }
 
     @Override
