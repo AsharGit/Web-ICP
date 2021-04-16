@@ -21,3 +21,5 @@ ICP-8: This ICP we learn how to use Android Studio to make mobile applications.
 ICP-9: This ICP we learn how to create a working application that can take an order.
 
 ICP-10: This ICP we learn how to create a application that uses an API to get and display information.
+
+ICP-11: This ICP we learn how to create an application that uses the built in sensor functions of android.
