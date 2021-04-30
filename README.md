@@ -23,3 +23,7 @@ ICP-9: This ICP we learn how to create a working application that can take an or
 ICP-10: This ICP we learn how to create a application that uses an API to get and display information.
 
 ICP-11: This ICP we learn how to create an application that uses the built in sensor functions of android.
+
+ICP-12: This ICP we learn how to use SQLite and Firebase database in our application.
+
+ICP-13: This ICP we learn how to use the Text to Speech functionality in android applications.
