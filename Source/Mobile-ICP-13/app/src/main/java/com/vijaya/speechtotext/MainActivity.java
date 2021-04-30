@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private TextToSpeech mTts;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
+    public static String NAME = " ";
+    public String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +39,16 @@ public class MainActivity extends AppCompatActivity {
         mTts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @SuppressLint("SetTextI18n")
             @Override
+            // Check to see if text to speech loads successfully
             public void onInit(int status) {
+                // If there is no error
                 if (status == TextToSpeech.SUCCESS) {
                     mTts.setLanguage(Locale.US);
-                    mTts.speak("Hello, welcome to Text to Speech.", TextToSpeech.QUEUE_ADD,
+                    mTts.speak("Hello, welcome to Speech to Text", TextToSpeech.QUEUE_ADD,
                             null);
-                    mVoiceInputTv.setText("Hello, welcome to Text to Speech.");
+                    mVoiceInputTv.setText("Hello, welcome to Speech to Text.");
+
+                    // Display error message if text to speech does not load
                 } else if (status == TextToSpeech.ERROR) {
                     Toast.makeText(getApplicationContext(), "Error loading Text to Speech",
                             Toast.LENGTH_SHORT).show();
@@ -61,10 +67,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startVoiceInput() {
+        // Display and settings for when user clicks on the mic to speak
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Hello, How can I help you?");
+        // Error checking for voice input
         try {
             startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
         } catch (ActivityNotFoundException a) {
@@ -77,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        // When a user uses the mic, display the speech as text
+        // Use prompt function for specific responses
         switch (requestCode) {
             case REQ_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null != data) {
@@ -93,11 +103,14 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void prompt(String input) {
 
+        // Use if statements to search for keywords the user says
+        // Speak and set text with a corresponding response if keyword found
         if (input.contains("hello")) {
             mTts.speak("What is your name?", TextToSpeech.QUEUE_ADD, null);
             mVoiceInputTv.setText("What is your name?");
         }
         else if (input.contains("my name")) {
+            // Set user's name to use later
             setName(input.split(" ")[3]);
         }
         else if (input.contains("not feeling well")) {
@@ -106,9 +119,8 @@ public class MainActivity extends AppCompatActivity {
             mVoiceInputTv.setText("I can understand. Please tell your symptoms in short.");
         }
         else if (input.contains("thank you")) {
-            mTts.speak("Thank you too. Take care",
-                    TextToSpeech.QUEUE_FLUSH, null);
-            mVoiceInputTv.setText("Thank you too. Take care");
+            // Gets users name to respond
+            getName();
         }
         else if (input.contains("medicines")) {
             mTts.speak("I think you have a fever. Please take Advil or Tylenol.",
@@ -118,12 +130,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressLint("SetTextI18n")
+    // Set name using shared preference
     private void setName(String name) {
-        preferences = getSharedPreferences("prefs",0);
+        preferences = getSharedPreferences("preferences",0);
         editor = preferences.edit();
-        editor.putString("name", name).apply();
+        editor.putString(NAME, name).apply();
 
+        // Speak and set text using the users name in the response
         mTts.speak("Good to meet you " + name, TextToSpeech.QUEUE_FLUSH, null);
         mVoiceInputTv.setText("Good to meet you " + name);
+    }
+
+    @SuppressLint("SetTextI18n")
+    // Retrieve name using shared preference
+    private void getName() {
+        preferences = getSharedPreferences("preferences",0);
+        name = preferences.getString(NAME, " ");
+
+        // Speak and set text using the users name in the response
+        mTts.speak("Thank you too " + name + ", Take care.",
+                TextToSpeech.QUEUE_FLUSH, null);
+        mVoiceInputTv.setText("Thank you too " + name + ", Take care.");
+
     }
 }
